@@ -1,0 +1,35 @@
+Problem 2 : Event Scheduler
+
+import heapq
+
+def can_attend_all(events):
+    if not events:
+        return True
+
+    events.sort(key=lambda x: x[0])
+
+    for i in range(1, len(events)):
+        prev_end = events[i - 1][1]
+        curr_start = events[i][0]
+
+        if curr_start < prev_end:
+            return False
+
+    return True
+
+
+def min_rooms_required(events):
+    if not events:
+        return 0
+
+    events.sort(key=lambda x: x[0])
+
+    min_heap = []
+
+    for start, end in events:
+        if min_heap and min_heap[0] <= start:
+            heapq.heappop(min_heap)
+
+        heapq.heappush(min_heap, end)
+
+    return len(min_heap)
