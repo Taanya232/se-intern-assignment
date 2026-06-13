@@ -1,5 +1,6 @@
 # se-intern-assignment
 Solutions for LRU Cache and Event Scheduler assessment with complexity analysis and system design discussion.
+
 **Problem 1: LRU Cache Architecture and Mechanics**
 
 An LRU Cache is a memory buffer that stores a fixed amount of frequently used data. When the cache is full it gets rid of the items that have not been used recently. This helps make the cache work faster when it needs to read or write data.
